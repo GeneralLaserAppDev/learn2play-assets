@@ -11,7 +11,16 @@ and other external surfaces.
 - `logo.png` — full-resolution app logo (1024×1024)
 - `email/logo.png` — email-optimized copy (256×256)
 
-Recommended embed URL (jsDelivr CDN — note the branch is `master`, not `main`):
+> **Emails must NOT embed jsDelivr URLs** — Apple Mail's privacy proxy fails to
+> load images from cdn.jsdelivr.net. Transactional emails serve these files from
+> the Supabase Storage bucket `email-assets` (project kdillkplobmdelacerrd)
+> instead; re-upload there when a file in this repo changes:
+>
+> ```
+> https://kdillkplobmdelacerrd.supabase.co/storage/v1/object/public/email-assets/logo.png
+> ```
+
+For non-email surfaces, jsDelivr works (note the branch is `master`, not `main`):
 
 ```
 https://cdn.jsdelivr.net/gh/GeneralLaserAppDev/learn2play-assets@master/email/logo.png
